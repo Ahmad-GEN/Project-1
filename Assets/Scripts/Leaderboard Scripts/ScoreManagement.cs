@@ -45,6 +45,5 @@ public class ScoreManagement : MonoBehaviour
     {
         var json = JsonUtility.ToJson(scoreData);
         PlayerPrefs.SetString(Constants.PlayerPrefsNames.scores.ToString(), json);
-        Debug.Log("JSON : " + json);
     }
 }

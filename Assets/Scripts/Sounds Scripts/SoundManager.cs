@@ -1,94 +1,59 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
-    private bool IsMuted = false;
-    public Button MusicButton;
-    public Sprite MusicOnSprite;
-    public Sprite MusicOffSprite;
-    public Sprite SoundOnSprite;
-    public Sprite SoundOffSprite;
-    public Button SoundButton;
-    public AudioSource audioSource;
-    private void Start()
+    public AudioClip[] musicClips;
+    public AudioClip[] soundClips;
+    public AudioSource musicAudioSource;
+    public AudioSource soundAudioSource;
+
+    public static SoundManager instance;
+    private void Awake()
     {
-        if(!PlayerPrefs.HasKey(Constants.PlayerPrefsNames.muted.ToString()))
+        if(instance != null)
         {
-            PlayerPrefs.SetInt(Constants.PlayerPrefsNames.muted.ToString(), 0);
-            Load();
+            Destroy(gameObject);
         }
         else
         {
-            Load();
-        }
-        UpdateMusicButtonSprite();
-        UpdateSoundButtonSprite();
-        AudioListener.pause = IsMuted;
-    }
-
-    private void UpdateMusicButtonSprite()
-    {
-        if (IsMuted)
-        {
-            MusicButton.image.sprite = MusicOffSprite;
-        }
-        else
-        {
-            MusicButton.image.sprite = MusicOnSprite;
+            instance = this;
+            DontDestroyOnLoad(instance);
         }
     }
 
-    public void OnMusicButtonPressed()
+    public void PlaySound(Constants.SoundEffects effect)
     {
-        if(!IsMuted)
-        {
-            IsMuted = true;
-            AudioListener.pause = true;
-        }
-        else
-        {
-            IsMuted = false;
-            AudioListener.pause = false;
-        }
-        Save();
-        UpdateMusicButtonSprite();
+        soundAudioSource.PlayOneShot(soundClips[(int)effect]);
     }
 
-    private void UpdateSoundButtonSprite()
+    public void SoundOnClick()
     {
-        if (IsMuted)
-        {
-            SoundButton.image.sprite = SoundOffSprite;
-        }
-        else
-        {
-            SoundButton.image.sprite = SoundOnSprite;
-        }
+        PlaySound(Constants.SoundEffects.ButtonSound);
     }
 
-    public void OnSoundButtonPressed()
+    public void PlayMusic(Constants.BackgroundMusic music)
     {
-        if (!IsMuted)
-        {
-            IsMuted = true;
-            audioSource.Stop();
-        }
-        else
-        {
-            IsMuted = false;
-            audioSource.Play();
-        }
-        Save();
-        UpdateSoundButtonSprite();
+        musicAudioSource.Stop();
+        musicAudioSource.clip = musicClips[(int)music];
+        musicAudioSource.Play();
+    }
+    
+    public void PauseMusic()
+    {
+        musicAudioSource.mute = true;
     }
 
-    public void Load()
+    public void ResumeMusic()
     {
-        IsMuted = PlayerPrefs.GetInt(Constants.PlayerPrefsNames.muted.ToString()) == 1;
+        musicAudioSource.mute = false;
     }
 
-    public void Save()
+    public void PauseSound()
     {
-        PlayerPrefs.SetInt(Constants.PlayerPrefsNames.muted.ToString(), IsMuted ? 1 : 0);
+        soundAudioSource.mute = true;
+    }
+
+    public void ResumeSound()
+    {
+        soundAudioSource.mute = false;
     }
 }

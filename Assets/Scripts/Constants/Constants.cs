@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Constants : MonoBehaviour
 {
-    public enum PlayerPrefsNames {player, scores, HighScore, CharacterSelected, muted, MusicVolume, 
-                                  totalScoreValues, playerName, playerScore, fPlayerName};
+    public enum PlayerPrefsNames {player, scores, HighScore, CharacterSelected, Music, MusicVolume, 
+                                  totalScoreValues, playerName, playerScore, fPlayerName, Sound};
+
+    public enum BackgroundMusic { GamePlay, MainMenu };
+    public enum SoundEffects { ButtonSound, FootSteps };
 }

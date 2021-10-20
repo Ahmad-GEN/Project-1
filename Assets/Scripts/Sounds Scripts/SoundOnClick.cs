@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class SoundOnClick : MonoBehaviour
 {
-    public AudioSource SoundSource;
-    public AudioClip SoundClip;
-
     public void OnClickSound()
     {
-        SoundSource.PlayOneShot(SoundClip);
+        SoundManager.instance.PlaySound(Constants.SoundEffects.ButtonSound);
     }
 }

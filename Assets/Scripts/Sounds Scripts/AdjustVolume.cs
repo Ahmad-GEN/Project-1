@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class AdjustVolume : MonoBehaviour
 {
     [SerializeField] private Slider VolumeSlider;
-
     private void Start()
     {
         if(!PlayerPrefs.HasKey(Constants.PlayerPrefsNames.MusicVolume.ToString()))
         {
-            PlayerPrefs.SetFloat(Constants.PlayerPrefsNames.MusicVolume.ToString(), 1);
+            PlayerPrefs.SetFloat(Constants.PlayerPrefsNames.MusicVolume.ToString(), 0.5f);
             Load();
         }
         else

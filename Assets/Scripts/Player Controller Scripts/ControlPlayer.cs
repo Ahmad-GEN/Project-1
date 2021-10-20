@@ -31,7 +31,6 @@ public class ControlPlayer : MonoBehaviour
         if (jstick.Horizontal != 0f || jstick.Vertical != 0f)
         {
             animator.SetBool("Walk", true);
-            //transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
         else
         {
