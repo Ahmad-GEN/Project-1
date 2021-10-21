@@ -5,6 +5,8 @@ public class ChangeScreen : MonoBehaviour
 {
     public GameObject GameOverPanel;
     public GameObject GamePlayPanel;
+    private CollectFruits instance;
+    public Joystick jstick;
     public void MenuButton()
     {
         SceneManager.LoadScene(ScenesContainer.SceneNames.MainMenu.ToString());
@@ -13,8 +15,9 @@ public class ChangeScreen : MonoBehaviour
 
     public void RestartButton()
     {
-        GameOverPanel.SetActive(false);
-        GamePlayPanel.SetActive(true);
+        //GameOverPanel.SetActive(false);
+        //GamePlayPanel.SetActive(true);
+        SceneManager.LoadScene(ScenesContainer.SceneNames.GamePlay.ToString());
     }
 
     public  static void ConfirmButton()

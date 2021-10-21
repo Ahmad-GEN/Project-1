@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 200679272}
   GamePlayPanel: {fileID: 1877864249}
+  jstick: {fileID: 0}
 --- !u!114 &197850112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &200679273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1392,18 +1393,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5eda94a9dcf71e445ad17e3c065d1460,
+        type: 3}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
       propertyPath: m_Color.b
-      value: 0.8773585
+      value: 0.2971698
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.53952724
+      value: 0.6098468
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.16967781
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
@@ -2695,6 +2702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 200679272}
   GamePlayPanel: {fileID: 1877864249}
+  jstick: {fileID: 0}
 --- !u!114 &1164983745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8008,7 +8016,7 @@ PrefabInstance:
     - target: {fileID: 8532525354442960566, guid: 03a552a4186b4b944ab6fca543bd73ba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8532525354442960566, guid: 03a552a4186b4b944ab6fca543bd73ba,
         type: 3}

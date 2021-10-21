@@ -17,7 +17,6 @@ public class CountDownTimer : MonoBehaviour
     {
         countDown.text = seconds.ToString();
         remainingTime.text = timeLeft.ToString();
-        Debug.Log("Call");
     }
 
     // Update is called once per frame

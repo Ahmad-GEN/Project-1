@@ -21,12 +21,14 @@ public class ScoreManagement : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         scoreData = new ScoreData();
-        var json = PlayerPrefs.GetString(Constants.PlayerPrefsNames.scores.ToString(), "{}");
+        var json = PlayerPrefs.GetString("scores", "{}");
         scoreData = JsonUtility.FromJson<ScoreData>(json);
+        Debug.Log(scoreData);
     }
 
     public IEnumerable<Score> GetHighScore()
     {
+        
         return scoreData.scores.OrderByDescending(x => x.PlayerScore);
     }
 
@@ -44,6 +46,6 @@ public class ScoreManagement : MonoBehaviour
     public void SaveScore()
     {
         var json = JsonUtility.ToJson(scoreData);
-        PlayerPrefs.SetString(Constants.PlayerPrefsNames.scores.ToString(), json);
+        PlayerPrefs.SetString("scores", json);
     }
 }
